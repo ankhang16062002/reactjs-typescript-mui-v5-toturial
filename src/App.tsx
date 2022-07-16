@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Box } from '@mui/material';
 import './App.css';
+import NavBar from './components/NavBar';
+import ToggleTheme from './components/ToggleTheme';
+import ProcessProvier from "./context/ProcessContext"
+import ThemeProvider from "./context/ThemeContext"
+import AuthProvider from "./context/AuthProvider"
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProcessProvier>
+      <ThemeProvider>
+        <AuthProvider>
+          <Box>
+            <NavBar />
+            <ToggleTheme/>
+          </Box>
+        </AuthProvider>
+      </ThemeProvider>
+    </ProcessProvier>
   );
 }
 
